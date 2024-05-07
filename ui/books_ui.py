@@ -11,14 +11,16 @@
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
+    QCursor, QFont, QFontDatabase, QGradient,
+    QIcon, QImage, QKeySequence, QLinearGradient,
+    QPainter, QPalette, QPixmap, QRadialGradient,
+    QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
     QHeaderView, QLabel, QLineEdit, QMainWindow,
-    QMenuBar, QPushButton, QSizePolicy, QSplitter,
-    QStatusBar, QTableWidget, QTableWidgetItem, QWidget)
+    QMenu, QMenuBar, QPushButton, QSizePolicy,
+    QSplitter, QStatusBar, QTableWidget, QTableWidgetItem,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -118,6 +120,8 @@ class Ui_MainWindow(object):
 "#function_frame #delete_button::hover{\n"
 "	border-color: #dc0004;\n"
 "}")
+        self.actionSearch = QAction(MainWindow)
+        self.actionSearch.setObjectName(u"actionSearch")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout_3 = QGridLayout(self.centralwidget)
@@ -125,11 +129,11 @@ class Ui_MainWindow(object):
         self.gridLayout_3.setContentsMargins(20, 10, 20, 10)
         self.splitter = QSplitter(self.centralwidget)
         self.splitter.setObjectName(u"splitter")
-        self.splitter.setOrientation(Qt.Vertical)
+        self.splitter.setOrientation(Qt.Orientation.Vertical)
         self.frame = QFrame(self.splitter)
         self.frame.setObjectName(u"frame")
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
+        self.frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout = QHBoxLayout(self.frame)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.header_label = QLabel(self.frame)
@@ -140,7 +144,7 @@ class Ui_MainWindow(object):
         font1.setItalic(False)
         self.header_label.setFont(font1)
         self.header_label.setScaledContents(False)
-        self.header_label.setAlignment(Qt.AlignCenter)
+        self.header_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.header_label.setWordWrap(False)
 
         self.horizontalLayout.addWidget(self.header_label)
@@ -148,35 +152,22 @@ class Ui_MainWindow(object):
         self.splitter.addWidget(self.frame)
         self.function_frame = QFrame(self.splitter)
         self.function_frame.setObjectName(u"function_frame")
-        self.function_frame.setFrameShape(QFrame.StyledPanel)
-        self.function_frame.setFrameShadow(QFrame.Raised)
+        self.function_frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.function_frame.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.function_frame)
         self.horizontalLayout_3.setSpacing(15)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(30, 10, 30, 10)
         self.add_btn = QPushButton(self.function_frame)
         self.add_btn.setObjectName(u"add_btn")
+        font2 = QFont()
+        font2.setFamilies([u"Segoe UI Semibold"])
+        self.add_btn.setFont(font2)
         icon = QIcon()
-        icon.addFile(u"icons/add.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"../.designer/.designer/backup/icons/add.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.add_btn.setIcon(icon)
 
         self.horizontalLayout_3.addWidget(self.add_btn)
-
-        self.refresh_btn = QPushButton(self.function_frame)
-        self.refresh_btn.setObjectName(u"refresh_btn")
-        icon1 = QIcon()
-        icon1.addFile(u"icons/published_with_changes.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.refresh_btn.setIcon(icon1)
-
-        self.horizontalLayout_3.addWidget(self.refresh_btn)
-
-        self.clear_btn = QPushButton(self.function_frame)
-        self.clear_btn.setObjectName(u"clear_btn")
-        icon2 = QIcon()
-        icon2.addFile(u"icons/backspace.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.clear_btn.setIcon(icon2)
-
-        self.horizontalLayout_3.addWidget(self.clear_btn)
 
         self.search_line = QLineEdit(self.function_frame)
         self.search_line.setObjectName(u"search_line")
@@ -186,33 +177,47 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.search_line.sizePolicy().hasHeightForWidth())
         self.search_line.setSizePolicy(sizePolicy)
         self.search_line.setMinimumSize(QSize(250, 30))
+        font3 = QFont()
+        font3.setPointSize(11)
+        self.search_line.setFont(font3)
 
         self.horizontalLayout_3.addWidget(self.search_line)
 
         self.splitter.addWidget(self.function_frame)
         self.result_frame = QFrame(self.splitter)
         self.result_frame.setObjectName(u"result_frame")
-        self.result_frame.setFrameShape(QFrame.StyledPanel)
-        self.result_frame.setFrameShadow(QFrame.Raised)
+        self.result_frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.result_frame.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.result_frame)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.books_table = QTableWidget(self.result_frame)
         if (self.books_table.columnCount() < 5):
             self.books_table.setColumnCount(5)
         __qtablewidgetitem = QTableWidgetItem()
+        __qtablewidgetitem.setTextAlignment(Qt.AlignLeading|Qt.AlignVCenter);
+        __qtablewidgetitem.setFont(font3);
         self.books_table.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
+        __qtablewidgetitem1.setTextAlignment(Qt.AlignLeading|Qt.AlignVCenter);
+        __qtablewidgetitem1.setFont(font3);
         self.books_table.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
+        __qtablewidgetitem2.setTextAlignment(Qt.AlignLeading|Qt.AlignVCenter);
+        __qtablewidgetitem2.setFont(font3);
         self.books_table.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         __qtablewidgetitem3 = QTableWidgetItem()
+        __qtablewidgetitem3.setTextAlignment(Qt.AlignLeading|Qt.AlignVCenter);
+        __qtablewidgetitem3.setFont(font3);
         self.books_table.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         __qtablewidgetitem4 = QTableWidgetItem()
+        __qtablewidgetitem4.setTextAlignment(Qt.AlignLeading|Qt.AlignVCenter);
+        __qtablewidgetitem4.setFont(font3);
         self.books_table.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         self.books_table.setObjectName(u"books_table")
         self.books_table.setMinimumSize(QSize(900, 0))
         self.books_table.setMaximumSize(QSize(1131, 451))
-        self.books_table.setFocusPolicy(Qt.NoFocus)
+        self.books_table.setFont(font3)
+        self.books_table.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.books_table.setShowGrid(False)
         self.books_table.horizontalHeader().setCascadingSectionResizes(False)
         self.books_table.horizontalHeader().setMinimumSectionSize(50)
@@ -229,11 +234,16 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 958, 21))
+        self.menubar.setGeometry(QRect(0, 0, 958, 22))
+        self.menuFile = QMenu(self.menubar)
+        self.menuFile.setObjectName(u"menuFile")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
+        self.menubar.addAction(self.menuFile.menuAction())
+        self.menuFile.addAction(self.actionSearch)
 
         self.retranslateUi(MainWindow)
 
@@ -242,10 +252,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.actionSearch.setText(QCoreApplication.translate("MainWindow", u"Search", None))
         self.header_label.setText(QCoreApplication.translate("MainWindow", u"Books Information System", None))
         self.add_btn.setText(QCoreApplication.translate("MainWindow", u"Add", None))
-        self.refresh_btn.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
-        self.clear_btn.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
         ___qtablewidgetitem = self.books_table.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Id", None));
         ___qtablewidgetitem1 = self.books_table.horizontalHeaderItem(1)
@@ -255,6 +264,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem3 = self.books_table.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Year", None));
         ___qtablewidgetitem4 = self.books_table.horizontalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Genre", None));
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Pages", None));
+        self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
     # retranslateUi
 

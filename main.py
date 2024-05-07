@@ -2,20 +2,25 @@ import sys
 from PySide6.QtWidgets import QApplication
 
 from models.books_model import BooksModel
+from models.open_library_model import OpenLibraryModel
+
 from presenters.books_presenter import BookPresenter
-from views.books_view import BooksView, BookDetailsView, AddBookView
+from presenters.search_presenter import SearchPresenter
+
+from views.books_view import BooksView
+from views.search_view import SearchView
 
 
 def main():
     app = QApplication(sys.argv)
 
     model = BooksModel()
-
     books_view = BooksView()
-    book_details_view = BookDetailsView()
-    add_book_view = AddBookView()
+    _book_presenter = BookPresenter(model, books_view)
 
-    _ = BookPresenter(model, books_view, book_details_view, add_book_view)
+    search_model = OpenLibraryModel()
+    search_view = SearchView()
+    _search_presenter = SearchPresenter(search_model, search_view)
 
     books_view.show()
 

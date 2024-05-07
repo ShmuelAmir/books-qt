@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>377</width>
+    <width>388</width>
     <height>581</height>
    </rect>
   </property>
@@ -104,58 +104,127 @@
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="1" column="2">
-        <widget class="QLineEdit" name="author_line"/>
+        <widget class="QLineEdit" name="author_line">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_7">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Author</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
        <item row="0" column="2">
-        <widget class="QLineEdit" name="title_line"/>
+        <widget class="QLineEdit" name="title_line">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="label_6">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Title</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="label_10">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
          <property name="text">
-          <string>Genre</string>
+          <string>Pages</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
        <item row="3" column="2">
         <widget class="QLineEdit" name="image_url_line">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string/>
          </property>
         </widget>
        </item>
        <item row="2" column="2">
-        <widget class="QLineEdit" name="year_line"/>
+        <widget class="QLineEdit" name="year_line">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="label_8">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Year</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
        <item row="3" column="0" colspan="2">
         <widget class="QLabel" name="label_9">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Image url</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
        <item row="4" column="2">
-        <widget class="QComboBox" name="genre_combo_box"/>
+        <widget class="QLineEdit" name="pages_line">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -178,6 +247,29 @@
         <height>101</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>0</y>
+        <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Comments</string>
+      </property>
      </widget>
     </widget>
    </item>
@@ -197,7 +289,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>icons/published_with_changes.svg</normaloff>icons/published_with_changes.svg</iconset>
+          <normaloff>../.designer/.designer/backup/icons/published_with_changes.svg</normaloff>../.designer/.designer/backup/icons/published_with_changes.svg</iconset>
         </property>
        </widget>
       </item>
@@ -208,7 +300,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>icons/delete.svg</normaloff>icons/delete.svg</iconset>
+          <normaloff>../.designer/.designer/backup/icons/delete.svg</normaloff>../.designer/.designer/backup/icons/delete.svg</iconset>
         </property>
        </widget>
       </item>

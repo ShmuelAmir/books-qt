@@ -15,15 +15,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
-    QHBoxLayout, QLabel, QLineEdit, QPushButton,
-    QSizePolicy, QTextEdit, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QTextEdit, QVBoxLayout, QWidget)
 
 class Ui_add_book_window(object):
     def setupUi(self, add_book_window):
         if not add_book_window.objectName():
             add_book_window.setObjectName(u"add_book_window")
-        add_book_window.resize(377, 581)
+        add_book_window.resize(388, 581)
         add_book_window.setStyleSheet(u"#function_frame QPushButton{\n"
 "	font-size: 14px;\n"
 "	padding: 5px 10px;\n"
@@ -86,53 +86,70 @@ class Ui_add_book_window(object):
         self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
         self.author_line = QLineEdit(self.layoutWidget)
         self.author_line.setObjectName(u"author_line")
+        font1 = QFont()
+        font1.setPointSize(11)
+        self.author_line.setFont(font1)
 
         self.gridLayout_3.addWidget(self.author_line, 1, 2, 1, 1)
 
         self.label_7 = QLabel(self.layoutWidget)
         self.label_7.setObjectName(u"label_7")
+        self.label_7.setFont(font1)
+        self.label_7.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.gridLayout_3.addWidget(self.label_7, 1, 0, 1, 1)
 
         self.title_line = QLineEdit(self.layoutWidget)
         self.title_line.setObjectName(u"title_line")
+        self.title_line.setFont(font1)
 
         self.gridLayout_3.addWidget(self.title_line, 0, 2, 1, 1)
 
         self.label_6 = QLabel(self.layoutWidget)
         self.label_6.setObjectName(u"label_6")
+        self.label_6.setFont(font1)
+        self.label_6.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.gridLayout_3.addWidget(self.label_6, 0, 0, 1, 1)
 
         self.label_10 = QLabel(self.layoutWidget)
         self.label_10.setObjectName(u"label_10")
+        self.label_10.setFont(font1)
+        self.label_10.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.gridLayout_3.addWidget(self.label_10, 4, 0, 1, 1)
 
         self.image_url_line = QLineEdit(self.layoutWidget)
         self.image_url_line.setObjectName(u"image_url_line")
+        self.image_url_line.setFont(font1)
 
         self.gridLayout_3.addWidget(self.image_url_line, 3, 2, 1, 1)
 
         self.year_line = QLineEdit(self.layoutWidget)
         self.year_line.setObjectName(u"year_line")
+        self.year_line.setFont(font1)
 
         self.gridLayout_3.addWidget(self.year_line, 2, 2, 1, 1)
 
         self.label_8 = QLabel(self.layoutWidget)
         self.label_8.setObjectName(u"label_8")
+        self.label_8.setFont(font1)
+        self.label_8.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.gridLayout_3.addWidget(self.label_8, 2, 0, 1, 1)
 
         self.label_9 = QLabel(self.layoutWidget)
         self.label_9.setObjectName(u"label_9")
+        self.label_9.setFont(font1)
+        self.label_9.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.gridLayout_3.addWidget(self.label_9, 3, 0, 1, 2)
 
-        self.genre_combo_box = QComboBox(self.layoutWidget)
-        self.genre_combo_box.setObjectName(u"genre_combo_box")
+        self.pages_line = QLineEdit(self.layoutWidget)
+        self.pages_line.setObjectName(u"pages_line")
+        self.pages_line.setFont(font1)
 
-        self.gridLayout_3.addWidget(self.genre_combo_box, 4, 2, 1, 1)
+        self.gridLayout_3.addWidget(self.pages_line, 4, 2, 1, 1)
 
 
         self.verticalLayout.addWidget(self.info_frame)
@@ -144,6 +161,13 @@ class Ui_add_book_window(object):
         self.comment_edit = QTextEdit(self.frame_2)
         self.comment_edit.setObjectName(u"comment_edit")
         self.comment_edit.setGeometry(QRect(10, 30, 341, 101))
+        self.comment_edit.setFont(font1)
+        self.label = QLabel(self.frame_2)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(130, 0, 111, 21))
+        font2 = QFont()
+        font2.setPointSize(16)
+        self.label.setFont(font2)
 
         self.verticalLayout.addWidget(self.frame_2)
 
@@ -156,7 +180,7 @@ class Ui_add_book_window(object):
         self.close_btn = QPushButton(self.function_frame)
         self.close_btn.setObjectName(u"close_btn")
         icon = QIcon()
-        icon.addFile(u"icons/published_with_changes.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"../.designer/.designer/backup/icons/published_with_changes.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.close_btn.setIcon(icon)
 
         self.horizontalLayout_3.addWidget(self.close_btn)
@@ -164,7 +188,7 @@ class Ui_add_book_window(object):
         self.add_btn = QPushButton(self.function_frame)
         self.add_btn.setObjectName(u"add_btn")
         icon1 = QIcon()
-        icon1.addFile(u"icons/delete.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"../.designer/.designer/backup/icons/delete.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.add_btn.setIcon(icon1)
 
         self.horizontalLayout_3.addWidget(self.add_btn)
@@ -187,10 +211,11 @@ class Ui_add_book_window(object):
         self.header_label.setText(QCoreApplication.translate("add_book_window", u"Add Book", None))
         self.label_7.setText(QCoreApplication.translate("add_book_window", u"Author", None))
         self.label_6.setText(QCoreApplication.translate("add_book_window", u"Title", None))
-        self.label_10.setText(QCoreApplication.translate("add_book_window", u"Genre", None))
+        self.label_10.setText(QCoreApplication.translate("add_book_window", u"Pages", None))
         self.image_url_line.setText("")
         self.label_8.setText(QCoreApplication.translate("add_book_window", u"Year", None))
         self.label_9.setText(QCoreApplication.translate("add_book_window", u"Image url", None))
+        self.label.setText(QCoreApplication.translate("add_book_window", u"Comments", None))
         self.close_btn.setText(QCoreApplication.translate("add_book_window", u"Close", None))
         self.add_btn.setText(QCoreApplication.translate("add_book_window", u"Add", None))
     # retranslateUi

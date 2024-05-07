@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>626</width>
-    <height>766</height>
+    <width>621</width>
+    <height>746</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -63,16 +63,16 @@
      <widget class="QLabel" name="title_label">
       <property name="geometry">
        <rect>
-        <x>210</x>
+        <x>30</x>
         <y>10</y>
-        <width>191</width>
+        <width>541</width>
         <height>48</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>Sitka</family>
-        <pointsize>30</pointsize>
+        <pointsize>25</pointsize>
         <italic>false</italic>
        </font>
       </property>
@@ -125,6 +125,11 @@
         </property>
         <item row="0" column="0">
          <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>Id</string>
           </property>
@@ -138,6 +143,11 @@
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="label_3">
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>Author</string>
           </property>
@@ -155,23 +165,33 @@
         </property>
         <item row="1" column="0">
          <widget class="QLabel" name="label_5">
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
           <property name="text">
-           <string>Genre</string>
+           <string>Pages</string>
           </property>
          </widget>
         </item>
         <item row="0" column="1">
          <widget class="QLineEdit" name="year_line"/>
         </item>
-        <item row="1" column="1">
-         <widget class="QComboBox" name="genre_combo"/>
-        </item>
         <item row="0" column="0">
          <widget class="QLabel" name="label_4">
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>Year</string>
           </property>
          </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="pages_line"/>
         </item>
        </layout>
       </item>
@@ -203,12 +223,21 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="3,3,1">
        <item>
-        <widget class="QGraphicsView" name="image_view">
+        <widget class="QLabel" name="image_view">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="maximumSize">
           <size>
-           <width>16777215</width>
-           <height>16777215</height>
+           <width>160</width>
+           <height>250</height>
           </size>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
          </property>
         </widget>
        </item>
@@ -216,6 +245,11 @@
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
           <widget class="QLabel" name="tag1_label">
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
            <property name="autoFillBackground">
             <bool>false</bool>
            </property>
@@ -226,6 +260,11 @@
          </item>
          <item>
           <widget class="QLabel" name="tag2_label">
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
            <property name="autoFillBackground">
             <bool>false</bool>
            </property>
@@ -236,6 +275,11 @@
          </item>
          <item>
           <widget class="QLabel" name="tag3_label">
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
            <property name="autoFillBackground">
             <bool>false</bool>
            </property>
@@ -246,6 +290,11 @@
          </item>
          <item>
           <widget class="QLabel" name="tag4_label">
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
            <property name="autoFillBackground">
             <bool>false</bool>
            </property>
@@ -256,6 +305,11 @@
          </item>
          <item>
           <widget class="QLabel" name="tag5_label">
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
            <property name="autoFillBackground">
             <bool>false</bool>
            </property>
@@ -276,6 +330,11 @@
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
            <property name="text">
             <string>value</string>
            </property>
@@ -288,6 +347,11 @@
              <width>16777215</width>
              <height>16777215</height>
             </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
            </property>
            <property name="text">
             <string>value</string>
@@ -302,6 +366,11 @@
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
            <property name="text">
             <string>value</string>
            </property>
@@ -315,6 +384,11 @@
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
            <property name="text">
             <string>value</string>
            </property>
@@ -327,6 +401,11 @@
              <width>16777215</width>
              <height>16777215</height>
             </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
            </property>
            <property name="text">
             <string>value</string>
@@ -351,10 +430,33 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>10</y>
+        <y>40</y>
         <width>521</width>
-        <height>131</height>
+        <height>101</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>10</y>
+        <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Comments</string>
       </property>
      </widget>
     </widget>
@@ -375,7 +477,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>icons/published_with_changes.svg</normaloff>icons/published_with_changes.svg</iconset>
+          <normaloff>../.designer/.designer/backup/icons/published_with_changes.svg</normaloff>../.designer/.designer/backup/icons/published_with_changes.svg</iconset>
         </property>
        </widget>
       </item>
@@ -386,7 +488,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>icons/published_with_changes.svg</normaloff>icons/published_with_changes.svg</iconset>
+          <normaloff>../.designer/.designer/backup/icons/published_with_changes.svg</normaloff>../.designer/.designer/backup/icons/published_with_changes.svg</iconset>
         </property>
        </widget>
       </item>
@@ -397,7 +499,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>icons/delete.svg</normaloff>icons/delete.svg</iconset>
+          <normaloff>../.designer/.designer/backup/icons/delete.svg</normaloff>../.designer/.designer/backup/icons/delete.svg</iconset>
         </property>
        </widget>
       </item>

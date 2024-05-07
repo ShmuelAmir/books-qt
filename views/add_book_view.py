@@ -12,16 +12,19 @@ class AddBookView(QDialog, Ui_add_book_window):
         super().__init__()
         self.setupUi(self)
 
-        self.add_btn.clicked.connect(lambda: self.add_book.emit(self.get_book_info()))
-        # self.cancel_btn.clicked.connect(self.close)
+        self.close_btn.clicked.connect(self.close)
+
+    def sendAddBookEvent(self):
+        self.add_book.emit(self.get_book_info())
+        self.close()
 
     def get_book_info(self) -> Dict[str, str]:
         book_dict = {
-            "title": self.book_title.text(),
-            "author": self.book_author.text(),
-            "genre": self.book_genre.text(),
-            "year": self.book_year.text(),
-            "comments": self.book_comments.toPlainText(),
-            "picture_url": self.picture_url.text(),
+            "title": self.title_line.text(),
+            "author": self.author_line.text(),
+            "pages": self.pages_line.text(),
+            "publishYear": self.year_line.text(),
+            "comments": self.comment_edit.toPlainText(),
+            "cover": self.image_url_line.text(),
         }
         return book_dict

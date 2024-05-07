@@ -15,16 +15,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGraphicsView,
-    QGridLayout, QHBoxLayout, QLabel, QLineEdit,
-    QPushButton, QSizePolicy, QTextEdit, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QTextEdit, QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(626, 766)
+        Form.resize(621, 746)
         sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -68,10 +67,10 @@ class Ui_Form(object):
         self.frame_4.setFrameShadow(QFrame.Raised)
         self.title_label = QLabel(self.frame_4)
         self.title_label.setObjectName(u"title_label")
-        self.title_label.setGeometry(QRect(210, 10, 191, 48))
+        self.title_label.setGeometry(QRect(30, 10, 541, 48))
         font = QFont()
         font.setFamilies([u"Sitka"])
-        font.setPointSize(30)
+        font.setPointSize(25)
         font.setItalic(False)
         self.title_label.setFont(font)
         self.title_label.setScaledContents(False)
@@ -94,6 +93,9 @@ class Ui_Form(object):
         self.gridLayout.setVerticalSpacing(15)
         self.label_2 = QLabel(self.info_frame)
         self.label_2.setObjectName(u"label_2")
+        font1 = QFont()
+        font1.setPointSize(11)
+        self.label_2.setFont(font1)
 
         self.gridLayout.addWidget(self.label_2, 0, 0, 1, 1)
 
@@ -109,6 +111,7 @@ class Ui_Form(object):
 
         self.label_3 = QLabel(self.info_frame)
         self.label_3.setObjectName(u"label_3")
+        self.label_3.setFont(font1)
 
         self.gridLayout.addWidget(self.label_3, 1, 0, 1, 1)
 
@@ -121,6 +124,7 @@ class Ui_Form(object):
         self.gridLayout_2.setVerticalSpacing(15)
         self.label_5 = QLabel(self.info_frame)
         self.label_5.setObjectName(u"label_5")
+        self.label_5.setFont(font1)
 
         self.gridLayout_2.addWidget(self.label_5, 1, 0, 1, 1)
 
@@ -129,15 +133,16 @@ class Ui_Form(object):
 
         self.gridLayout_2.addWidget(self.year_line, 0, 1, 1, 1)
 
-        self.genre_combo = QComboBox(self.info_frame)
-        self.genre_combo.setObjectName(u"genre_combo")
-
-        self.gridLayout_2.addWidget(self.genre_combo, 1, 1, 1, 1)
-
         self.label_4 = QLabel(self.info_frame)
         self.label_4.setObjectName(u"label_4")
+        self.label_4.setFont(font1)
 
         self.gridLayout_2.addWidget(self.label_4, 0, 0, 1, 1)
+
+        self.pages_line = QLineEdit(self.info_frame)
+        self.pages_line.setObjectName(u"pages_line")
+
+        self.gridLayout_2.addWidget(self.pages_line, 1, 1, 1, 1)
 
 
         self.horizontalLayout_2.addLayout(self.gridLayout_2)
@@ -160,9 +165,10 @@ class Ui_Form(object):
         self.horizontalLayout_3 = QHBoxLayout(self.layoutWidget)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.image_view = QGraphicsView(self.layoutWidget)
+        self.image_view = QLabel(self.layoutWidget)
         self.image_view.setObjectName(u"image_view")
-        self.image_view.setMaximumSize(QSize(16777215, 16777215))
+        self.image_view.setMinimumSize(QSize(0, 0))
+        self.image_view.setMaximumSize(QSize(160, 250))
 
         self.horizontalLayout_3.addWidget(self.image_view)
 
@@ -170,30 +176,35 @@ class Ui_Form(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.tag1_label = QLabel(self.layoutWidget)
         self.tag1_label.setObjectName(u"tag1_label")
+        self.tag1_label.setFont(font1)
         self.tag1_label.setAutoFillBackground(False)
 
         self.verticalLayout.addWidget(self.tag1_label)
 
         self.tag2_label = QLabel(self.layoutWidget)
         self.tag2_label.setObjectName(u"tag2_label")
+        self.tag2_label.setFont(font1)
         self.tag2_label.setAutoFillBackground(False)
 
         self.verticalLayout.addWidget(self.tag2_label)
 
         self.tag3_label = QLabel(self.layoutWidget)
         self.tag3_label.setObjectName(u"tag3_label")
+        self.tag3_label.setFont(font1)
         self.tag3_label.setAutoFillBackground(False)
 
         self.verticalLayout.addWidget(self.tag3_label)
 
         self.tag4_label = QLabel(self.layoutWidget)
         self.tag4_label.setObjectName(u"tag4_label")
+        self.tag4_label.setFont(font1)
         self.tag4_label.setAutoFillBackground(False)
 
         self.verticalLayout.addWidget(self.tag4_label)
 
         self.tag5_label = QLabel(self.layoutWidget)
         self.tag5_label.setObjectName(u"tag5_label")
+        self.tag5_label.setFont(font1)
         self.tag5_label.setAutoFillBackground(False)
 
         self.verticalLayout.addWidget(self.tag5_label)
@@ -206,30 +217,35 @@ class Ui_Form(object):
         self.tag1_value_label = QLabel(self.layoutWidget)
         self.tag1_value_label.setObjectName(u"tag1_value_label")
         self.tag1_value_label.setMaximumSize(QSize(16777215, 16777215))
+        self.tag1_value_label.setFont(font1)
 
         self.verticalLayout_2.addWidget(self.tag1_value_label)
 
         self.tag2_value_label = QLabel(self.layoutWidget)
         self.tag2_value_label.setObjectName(u"tag2_value_label")
         self.tag2_value_label.setMaximumSize(QSize(16777215, 16777215))
+        self.tag2_value_label.setFont(font1)
 
         self.verticalLayout_2.addWidget(self.tag2_value_label)
 
         self.tag3_value_label = QLabel(self.layoutWidget)
         self.tag3_value_label.setObjectName(u"tag3_value_label")
         self.tag3_value_label.setMaximumSize(QSize(16777215, 16777215))
+        self.tag3_value_label.setFont(font1)
 
         self.verticalLayout_2.addWidget(self.tag3_value_label)
 
         self.tag4_value_label = QLabel(self.layoutWidget)
         self.tag4_value_label.setObjectName(u"tag4_value_label")
         self.tag4_value_label.setMaximumSize(QSize(16777215, 16777215))
+        self.tag4_value_label.setFont(font1)
 
         self.verticalLayout_2.addWidget(self.tag4_value_label)
 
         self.tag5_value_label = QLabel(self.layoutWidget)
         self.tag5_value_label.setObjectName(u"tag5_value_label")
         self.tag5_value_label.setMaximumSize(QSize(16777215, 16777215))
+        self.tag5_value_label.setFont(font1)
 
         self.verticalLayout_2.addWidget(self.tag5_value_label)
 
@@ -248,7 +264,14 @@ class Ui_Form(object):
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.comments_edit = QTextEdit(self.frame_2)
         self.comments_edit.setObjectName(u"comments_edit")
-        self.comments_edit.setGeometry(QRect(40, 10, 521, 131))
+        self.comments_edit.setGeometry(QRect(40, 40, 521, 101))
+        self.comments_edit.setFont(font1)
+        self.label = QLabel(self.frame_2)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(250, 10, 111, 21))
+        font2 = QFont()
+        font2.setPointSize(16)
+        self.label.setFont(font2)
 
         self.verticalLayout_3.addWidget(self.frame_2)
 
@@ -261,7 +284,7 @@ class Ui_Form(object):
         self.close_btn = QPushButton(self.function_frame)
         self.close_btn.setObjectName(u"close_btn")
         icon = QIcon()
-        icon.addFile(u"icons/published_with_changes.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"../.designer/.designer/backup/icons/published_with_changes.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.close_btn.setIcon(icon)
 
         self.horizontalLayout.addWidget(self.close_btn)
@@ -275,7 +298,7 @@ class Ui_Form(object):
         self.delete_btn = QPushButton(self.function_frame)
         self.delete_btn.setObjectName(u"delete_btn")
         icon1 = QIcon()
-        icon1.addFile(u"icons/delete.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"../.designer/.designer/backup/icons/delete.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.delete_btn.setIcon(icon1)
 
         self.horizontalLayout.addWidget(self.delete_btn)
@@ -299,8 +322,9 @@ class Ui_Form(object):
         self.title_label.setText(QCoreApplication.translate("Form", u"Title", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Id", None))
         self.label_3.setText(QCoreApplication.translate("Form", u"Author", None))
-        self.label_5.setText(QCoreApplication.translate("Form", u"Genre", None))
+        self.label_5.setText(QCoreApplication.translate("Form", u"Pages", None))
         self.label_4.setText(QCoreApplication.translate("Form", u"Year", None))
+        self.image_view.setText(QCoreApplication.translate("Form", u"TextLabel", None))
         self.tag1_label.setText(QCoreApplication.translate("Form", u"tag1", None))
         self.tag2_label.setText(QCoreApplication.translate("Form", u"tag2", None))
         self.tag3_label.setText(QCoreApplication.translate("Form", u"tag3", None))
@@ -311,6 +335,7 @@ class Ui_Form(object):
         self.tag3_value_label.setText(QCoreApplication.translate("Form", u"value", None))
         self.tag4_value_label.setText(QCoreApplication.translate("Form", u"value", None))
         self.tag5_value_label.setText(QCoreApplication.translate("Form", u"value", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Comments", None))
         self.close_btn.setText(QCoreApplication.translate("Form", u"Close", None))
         self.update_btn.setText(QCoreApplication.translate("Form", u"Update", None))
         self.delete_btn.setText(QCoreApplication.translate("Form", u"Delete", None))

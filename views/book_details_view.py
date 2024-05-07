@@ -1,6 +1,8 @@
 from typing import Dict
-from PySide6.QtCore import Signal
+from PySide6.QtCore import Signal, QUrl
 from PySide6.QtWidgets import QDialog, QPushButton
+from PySide6.QtNetwork import QNetworkAccessManager, QNetworkRequest, QNetworkReply
+from PySide6.QtGui import QPixmap
 
 from ui.book_details_ui import Ui_Form
 
@@ -17,7 +19,7 @@ class BookDetailsView(QDialog, Ui_Form):
         self.buttons_list = self.function_frame.findChildren(QPushButton)
 
         self.delete_btn.clicked.connect(
-            lambda: self.delete_book.emit(int(self.book_id.text()))
+            lambda: self.delete_book.emit(int(self.Id_line.text()))
         )
         self.update_btn.clicked.connect(
             lambda: self.update_book.emit(self.get_book_info())
@@ -26,11 +28,11 @@ class BookDetailsView(QDialog, Ui_Form):
 
     def get_book_info(self) -> Dict[str, str]:
         book_dict = {
-            "id": self.book_id.text(),
+            "id": self.Id_line.text(),
             # "title": self.title_edit.text(),
-            "author": self.author_edit.text(),
-            "genre": self.genre_edit.text(),
-            "year": self.year_edit.text(),
+            "author": self.author_line.text(),
+            "pages": self.pages_line.text(),
+            "publishYear": self.year_line.text(),
             "comments": self.comments_edit.toPlainText(),
             # "picture_url": self.picture_url.text()
         }
@@ -38,19 +40,46 @@ class BookDetailsView(QDialog, Ui_Form):
 
     def set_book_info(self, book_dict: Dict[str, str]) -> None:
         # self.title_edit.setText(book_dict["title"])
-        self.book_id.setText(str(book_dict["id"]))
-        self.author_edit.setText(book_dict["author"])
-        self.genre_edit.setText(book_dict["genre"])
-        self.year_edit.setText(book_dict["year"])
-        self.comments_edit.setPlainText(book_dict["comments"])
-        self.tag1_name.setText(book_dict["tag1_name"])
-        self.tag2_name.setText(book_dict["tag2_name"])
-        self.tag3_name.setText(book_dict["tag3_name"])
-        self.tag4_name.setText(book_dict["tag4_name"])
-        self.tag5_name.setText(book_dict["tag5_name"])
-        self.tag1_value.setText(book_dict["tag1_value"])
-        self.tag2_value.setText(book_dict["tag2_value"])
-        self.tag3_value.setText(book_dict["tag3_value"])
-        self.tag4_value.setText(book_dict["tag4_value"])
-        self.tag5_value.setText(book_dict["tag5_value"])
-        self.picture_url.setPixmap(book_dict["picture_url"])
+        self.Id_line.setText(str(book_dict["id"]))
+        self.author_line.setText(book_dict["author"])
+        self.pages_line.setText(str(book_dict["pages"]))
+        self.year_line.setText(str(book_dict["publishYear"]))
+
+        self.comments_edit.setPlainText(
+            book_dict["comments"][0]["text"] if book_dict["comments"] else ""
+        )
+
+        for i in range(5):
+            tag = book_dict["imaggaTags"][i]["tag"]
+            confidence = book_dict["imaggaTags"][i]["confidence"]
+            self.__dict__[f"tag{i+1}_label"].setText(tag)
+            # i want only 3 decimal places and add "%" to the confidence:
+            self.__dict__[f"tag{i+1}_value_label"].setText(f"{confidence:.3f}%")
+
+        self.download_and_display_cover(book_dict["cover"])
+
+    def download_and_display_cover(self, url):
+        # Create a network access manager
+        network_manager = QNetworkAccessManager(self)
+
+        # Send a request to download the image
+        url = QUrl(url)
+        request = QNetworkRequest(url)
+        reply = network_manager.get(request)
+
+        # When the reply is finished, display the image
+        reply.finished.connect(lambda: self.display_cover(reply))
+
+    def display_cover(self, reply):
+        # Check if the request was successful
+        if reply.error() == QNetworkReply.NetworkError.NoError:
+            # Read the image data from the reply
+            image_data = reply.readAll()
+
+            # Create a pixmap from the image data
+            pixmap = QPixmap()
+            pixmap.loadFromData(image_data)
+
+            # Set the pixmap to the QLabel
+            self.image_view.setPixmap(pixmap)
+            self.image_view.setScaledContents(True)
