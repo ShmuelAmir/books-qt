@@ -1,7 +1,6 @@
 import requests
 from typing import Dict
 
-# BASE_URL = "http://localhost:5292/api/book/"  # development
 BASE_URL = "http://bookmanagementapi.somee.com/api/book/"
 
 
@@ -21,7 +20,6 @@ def get_image(url: str):
 
 
 def add(book_dict: Dict[str, str]) -> None:
-    print(book_dict)
     requests.post(BASE_URL, json=book_dict)
 
 

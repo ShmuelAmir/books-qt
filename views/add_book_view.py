@@ -1,6 +1,7 @@
 from typing import Dict
 from PySide6.QtCore import Signal
 from PySide6.QtWidgets import QDialog
+from PySide6.QtGui import QIntValidator
 
 from ui.add_book_ui import Ui_add_book_window
 
@@ -11,6 +12,11 @@ class AddBookView(QDialog, Ui_add_book_window):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+
+        self.setWindowTitle("Add Book")
+
+        self.pages_line.setValidator(QIntValidator())
+        self.year_line.setValidator(QIntValidator())
 
         self.close_btn.clicked.connect(self.close)
 

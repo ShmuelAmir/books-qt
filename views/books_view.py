@@ -14,23 +14,24 @@ from views.search_view import SearchView
 
 
 class BooksView(QMainWindow, Books_UI):
-    book_double_clicked = Signal(int)
-    add_from_search = Signal(str)
     delete_book = Signal(int)
     update_book = Signal(dict)
     add_book = Signal(dict)
+    local_search_signal = Signal(str)
+
     search_signal = Signal(str)
+    book_double_clicked = Signal(int)
+    add_from_search = Signal(str)
 
     def __init__(self):
         super().__init__()
         self.setupUi(self)
 
         self.books_table.setSortingEnabled(False)
-        self.buttons_list = self.function_frame.findChildren(QPushButton)
 
+        self.search_line.textChanged.connect(self.handle_text_changed)
         self.add_btn.clicked.connect(self.show_add_dialog)
         self.actionSearch.triggered.connect(self.show_search_dialog)
-        # self.refresh_btn.clicked.emit(self.refresh_list)
 
     def update_book_table(self, books: list) -> None:
         self.books_table.setRowCount(0)
@@ -48,6 +49,35 @@ class BooksView(QMainWindow, Books_UI):
         book_id = int(self.books_table.item(row, 0).text())
         self.book_double_clicked.emit(book_id)
 
+    def handle_text_changed(self, text: str) -> None:
+        self.local_search_signal.emit(text)
+
+    # Dialogs
+    def show_add_dialog(self) -> None:
+        dialog = AddBookView()
+        dialog.add_btn.clicked.connect(
+            lambda: self.add_book.emit(dialog.get_book_info())
+        )
+        dialog.add_btn.clicked.connect(dialog.close)
+        dialog.show()
+
+    def show_book_details_dialog(self, book_details) -> None:
+        dialog = BookDetailsView()
+        dialog.set_book_info(book_details)
+
+        dialog.update_btn.clicked.connect(
+            lambda: self.update_book.emit(dialog.get_book_info())
+        )
+        dialog.update_btn.clicked.connect(dialog.close)
+
+        dialog.delete_btn.clicked.connect(dialog.close)
+        dialog.delete_btn.clicked.connect(
+            lambda: self.delete_book.emit(int(dialog.Id_line.text()))
+        )
+
+        dialog.show()
+
+    # Search Dialog
     def show_search_dialog(self) -> None:
         self.dialog = SearchView()
         self.dialog.search_btn.clicked.connect(
@@ -63,26 +93,3 @@ class BooksView(QMainWindow, Books_UI):
         row = index.row()
         book_title = self.dialog.books_table.item(row, 0).text()
         self.add_from_search.emit(book_title)
-
-    def show_add_dialog(self) -> None:
-        dialog = AddBookView()
-        dialog.setWindowTitle("Add Book")
-        dialog.add_btn.clicked.connect(
-            lambda: self.add_book.emit(dialog.get_book_info())
-        )
-        dialog.add_btn.clicked.connect(dialog.close)
-        dialog.show()
-
-    def show_book_details_dialog(self, book_details) -> None:
-        dialog = BookDetailsView()
-        dialog.setWindowTitle("Update Book")
-        dialog.set_book_info(book_details)
-        dialog.delete_btn.clicked.connect(dialog.close)
-        dialog.update_btn.clicked.connect(dialog.close)
-        dialog.delete_btn.clicked.connect(
-            lambda: self.delete_book.emit(int(dialog.Id_line.text()))
-        )
-        dialog.update_btn.clicked.connect(
-            lambda: self.update_book.emit(dialog.get_book_info())
-        )
-        dialog.show()

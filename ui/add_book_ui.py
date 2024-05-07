@@ -24,7 +24,9 @@ class Ui_add_book_window(object):
         if not add_book_window.objectName():
             add_book_window.setObjectName(u"add_book_window")
         add_book_window.resize(388, 581)
-        add_book_window.setStyleSheet(u"#function_frame QPushButton{\n"
+        add_book_window.setStyleSheet(u"\n"
+"\n"
+"#function_frame QPushButton{\n"
 "	font-size: 14px;\n"
 "	padding: 5px 10px;\n"
 "	border: 2px solid #f0f0f0;\n"
@@ -180,7 +182,7 @@ class Ui_add_book_window(object):
         self.close_btn = QPushButton(self.function_frame)
         self.close_btn.setObjectName(u"close_btn")
         icon = QIcon()
-        icon.addFile(u"../.designer/.designer/backup/icons/published_with_changes.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"./icons/published_with_changes.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.close_btn.setIcon(icon)
 
         self.horizontalLayout_3.addWidget(self.close_btn)
@@ -188,7 +190,7 @@ class Ui_add_book_window(object):
         self.add_btn = QPushButton(self.function_frame)
         self.add_btn.setObjectName(u"add_btn")
         icon1 = QIcon()
-        icon1.addFile(u"../.designer/.designer/backup/icons/delete.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"./icons/delete.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.add_btn.setIcon(icon1)
 
         self.horizontalLayout_3.addWidget(self.add_btn)

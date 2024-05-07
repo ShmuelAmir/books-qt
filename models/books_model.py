@@ -1,5 +1,5 @@
 from typing import Dict
-from dal import books_dal, openlibrary
+from dal import books_dal
 
 
 class BooksModel:
@@ -30,9 +30,6 @@ class BooksModel:
 
     def _load(self) -> None:
         self.books = books_dal.get_all()
-        # for book in self.books:
-        #     if book["cover"]:
-        #         book["cover"] = books_dal.get_image(book["cover"])
 
     def get_books(self) -> list:
         return self.books
@@ -43,6 +40,5 @@ class BooksModel:
                 return book
         return None
 
-    def get_books_by_title_or_author(self, search_text: str) -> list:
-        self.search_books = openlibrary.get_books_by_title_or_author(search_text)
-        return self.search_books
+    def get_image(self, url: str):
+        return books_dal.get_image(url)

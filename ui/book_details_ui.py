@@ -29,7 +29,8 @@ class Ui_Form(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Form.sizePolicy().hasHeightForWidth())
         Form.setSizePolicy(sizePolicy)
-        Form.setStyleSheet(u"#function_frame QPushButton{\n"
+        Form.setStyleSheet(u"\n"
+"#function_frame QPushButton{\n"
 "	font-size: 14px;\n"
 "	padding: 5px 10px;\n"
 "	border: 2px solid #f0f0f0;\n"
@@ -157,6 +158,7 @@ class Ui_Form(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.image_frame.sizePolicy().hasHeightForWidth())
         self.image_frame.setSizePolicy(sizePolicy1)
+        self.image_frame.setStyleSheet(u"background-color: #dce6f7;")
         self.image_frame.setFrameShape(QFrame.StyledPanel)
         self.image_frame.setFrameShadow(QFrame.Raised)
         self.layoutWidget = QWidget(self.image_frame)
@@ -284,7 +286,7 @@ class Ui_Form(object):
         self.close_btn = QPushButton(self.function_frame)
         self.close_btn.setObjectName(u"close_btn")
         icon = QIcon()
-        icon.addFile(u"../.designer/.designer/backup/icons/published_with_changes.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"./icons/published_with_changes.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.close_btn.setIcon(icon)
 
         self.horizontalLayout.addWidget(self.close_btn)
@@ -298,7 +300,7 @@ class Ui_Form(object):
         self.delete_btn = QPushButton(self.function_frame)
         self.delete_btn.setObjectName(u"delete_btn")
         icon1 = QIcon()
-        icon1.addFile(u"../.designer/.designer/backup/icons/delete.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"./icons/delete.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.delete_btn.setIcon(icon1)
 
         self.horizontalLayout.addWidget(self.delete_btn)

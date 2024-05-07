@@ -31,7 +31,9 @@ class Ui_MainWindow(object):
         font = QFont()
         font.setPointSize(10)
         MainWindow.setFont(font)
-        MainWindow.setStyleSheet(u"#info_frame{\n"
+        MainWindow.setStyleSheet(u"\n"
+"\n"
+"#info_frame{\n"
 "	background-color: #fff;\n"
 "	border: none;\n"
 "	border-radius: 5px;\n"
@@ -87,8 +89,8 @@ class Ui_MainWindow(object):
 "\n"
 "QHeaderView::section{\n"
 "	border: none;\n"
-"	border-bottom: 1px solid #"
-                        "d0c6ff;\n"
+"	border-bottom: 1"
+                        "px solid #d0c6ff;\n"
 "	text-align: left;\n"
 "	padding: 3px 5px;\n"
 "}\n"
@@ -164,7 +166,7 @@ class Ui_MainWindow(object):
         font2.setFamilies([u"Segoe UI Semibold"])
         self.add_btn.setFont(font2)
         icon = QIcon()
-        icon.addFile(u"../.designer/.designer/backup/icons/add.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"./icons/add.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.add_btn.setIcon(icon)
 
         self.horizontalLayout_3.addWidget(self.add_btn)

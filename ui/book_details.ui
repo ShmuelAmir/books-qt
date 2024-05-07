@@ -20,7 +20,8 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#function_frame QPushButton{
+   <string notr="true">
+#function_frame QPushButton{
 	font-size: 14px;
 	padding: 5px 10px;
 	border: 2px solid #f0f0f0;
@@ -205,6 +206,9 @@
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #dce6f7;</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -477,7 +481,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>../.designer/.designer/backup/icons/published_with_changes.svg</normaloff>../.designer/.designer/backup/icons/published_with_changes.svg</iconset>
+          <normaloff>./icons/published_with_changes.svg</normaloff>./icons/published_with_changes.svg</iconset>
         </property>
        </widget>
       </item>
@@ -488,7 +492,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>../.designer/.designer/backup/icons/published_with_changes.svg</normaloff>../.designer/.designer/backup/icons/published_with_changes.svg</iconset>
+          <normaloff>./icons/published_with_changes.svg</normaloff>./icons/published_with_changes.svg</iconset>
         </property>
        </widget>
       </item>
@@ -499,7 +503,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>../.designer/.designer/backup/icons/delete.svg</normaloff>../.designer/.designer/backup/icons/delete.svg</iconset>
+          <normaloff>./icons/delete.svg</normaloff>./icons/delete.svg</iconset>
         </property>
        </widget>
       </item>

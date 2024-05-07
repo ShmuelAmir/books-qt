@@ -22,7 +22,9 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#info_frame{
+   <string notr="true">
+
+#info_frame{
 	background-color: #fff;
 	border: none;
 	border-radius: 5px;
@@ -199,7 +201,7 @@ QTableWidget::item{
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../.designer/.designer/backup/icons/add.svg</normaloff>../.designer/.designer/backup/icons/add.svg</iconset>
+            <normaloff>./icons/add.svg</normaloff>./icons/add.svg</iconset>
           </property>
          </widget>
         </item>
