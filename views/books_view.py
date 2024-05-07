@@ -32,6 +32,8 @@ class BooksView(QMainWindow, Books_UI):
         self.search_line.textChanged.connect(self.handle_text_changed)
         self.add_btn.clicked.connect(self.show_add_dialog)
         self.actionSearch.triggered.connect(self.show_search_dialog)
+        self.books_table.doubleClicked.connect(self.handle_double_click)
+
 
     def update_book_table(self, books: list) -> None:
         self.books_table.setRowCount(0)
@@ -42,8 +44,7 @@ class BooksView(QMainWindow, Books_UI):
             self.books_table.setItem(row, 2, QTableWidgetItem(book["author"]))
             self.books_table.setItem(row, 3, QTableWidgetItem(str(book["publishYear"])))
             self.books_table.setItem(row, 4, QTableWidgetItem(str(book["pages"])))
-        self.books_table.doubleClicked.connect(self.handle_double_click)
-
+        
     def handle_double_click(self, index):
         row = index.row()
         book_id = int(self.books_table.item(row, 0).text())
@@ -59,7 +60,8 @@ class BooksView(QMainWindow, Books_UI):
             lambda: self.add_book.emit(dialog.get_book_info())
         )
         dialog.add_btn.clicked.connect(dialog.close)
-        dialog.show()
+        dialog.show()    # not blocking
+        #dialog.exec()    # blocking
 
     def show_book_details_dialog(self, book_details) -> None:
         dialog = BookDetailsView()
@@ -84,7 +86,8 @@ class BooksView(QMainWindow, Books_UI):
             lambda: self.search_signal.emit(self.dialog.search_line.text())
         )
         self.dialog.books_table.doubleClicked.connect(self.handle_search_double_click)
-        self.dialog.show()
+        dialog.show()    # not blocking
+        #dialog.exec()    # blocking
 
     def update_book_search_table(self, books: list) -> None:
         self.dialog.set_table(books)
