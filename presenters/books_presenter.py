@@ -53,6 +53,7 @@ class BookPresenter:
             if (
                 query.lower() in book["title"].lower()
                 or query.lower() in book["author"].lower()
+                or query.lower() in str(book["imaggaTags"]).lower()
             ):
                 books.append(book)
         self.booksView.update_book_table(books)

@@ -86,7 +86,7 @@ class BooksView(QMainWindow, Books_UI):
             lambda: self.search_signal.emit(self.dialog.search_line.text())
         )
         self.dialog.books_table.doubleClicked.connect(self.handle_search_double_click)
-        dialog.show()    # not blocking
+        self.dialog.show()    # not blocking
         #dialog.exec()    # blocking
 
     def update_book_search_table(self, books: list) -> None:

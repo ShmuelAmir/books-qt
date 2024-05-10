@@ -12,14 +12,6 @@ class SearchView(QDialog, Ui_search_form):
         super().__init__()
         self.setupUi(self)
 
-        # self.search_btn.clicked.connect(self.search)
-        # self.search_btn.clicked.connect(
-        #     lambda: self.search_signal.emit(self.search_line.text())
-        # )
-
-    # def search(self):
-    #     self.search_signal.emit(self.search_line.text())
-
     def set_table(self, books):
         self.books_table.setRowCount(0)
         for row, book in enumerate(books):
